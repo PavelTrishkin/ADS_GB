@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class TestArray {
-    private static final int MAX_CAPACITY = 10000;
+    private static final int MAX_CAPACITY = 100000;
     private static final int MAX_VALUE = 10000;
     public static void main(String[] args) {
 
@@ -19,6 +19,7 @@ public class TestArray {
         timeDimensionInsert(array);
         System.out.println("************************** SORT SELECT **************************");
         timeDimensionSelect(array);
+        System.out.println("************************** END TEST ***************************");
     }
 
     private static void addArr(Array<Integer> array){
@@ -34,7 +35,7 @@ public class TestArray {
         long timeStart = System.nanoTime();
         test.sortBubble();
         long timeFinish = System.nanoTime();
-        System.out.println("Execution time: " + TimeUnit.MILLISECONDS.toMillis(timeFinish - timeStart));
+        System.out.println("Execution time: " + TimeUnit.NANOSECONDS.toMillis(timeFinish - timeStart) + " mills");
     }
 
     private static void timeDimensionInsert(Array<Integer> array){
@@ -43,7 +44,7 @@ public class TestArray {
         test.sortInsert();
         long timeFinish = System.nanoTime();
 
-        System.out.println("Execution time: " + TimeUnit.MILLISECONDS.toMillis(timeFinish - timeStart));
+        System.out.println("Execution time: " + TimeUnit.NANOSECONDS.toMillis(timeFinish - timeStart) + " mills");
     }
 
     private static void timeDimensionSelect(Array<Integer> array){
@@ -52,6 +53,6 @@ public class TestArray {
         test.sortSelect();
         long timeFinish = System.nanoTime();
 
-        System.out.println("Execution time: " + TimeUnit.MILLISECONDS.toMillis(timeFinish - timeStart));
+        System.out.println("Execution time: " + TimeUnit.NANOSECONDS.toMillis(timeFinish - timeStart) + " mills");
     }
 }
