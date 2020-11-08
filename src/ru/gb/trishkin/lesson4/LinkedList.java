@@ -1,6 +1,8 @@
 package ru.gb.trishkin.lesson4;
 
-public interface LinkedList<E> {
+import ru.gb.trishkin.lesson4.homework.LinkedListIterator;
+
+public interface LinkedList<E> extends LinkedListIterator<E> {
 
     void insertFirst(E value);
 

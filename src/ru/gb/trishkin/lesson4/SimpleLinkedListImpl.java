@@ -1,5 +1,7 @@
 package ru.gb.trishkin.lesson4;
 
+import java.util.Iterator;
+
 public class SimpleLinkedListImpl<E> implements LinkedList<E> {
 
     protected int size;
@@ -96,5 +98,28 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E> {
     @Override
     public E getFirst() {
         return firstElement.item;
+    }
+
+
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
+            @Override
+            public boolean hasNext() {
+                return firstElement != null;
+            }
+
+            @Override
+            public E next() {
+                if(!hasNext()){
+                    return null;
+                }
+
+                Node<E> lastReturned = firstElement;
+                firstElement = firstElement.next;
+
+                return  lastReturned.item;
+            }
+        };
     }
 }

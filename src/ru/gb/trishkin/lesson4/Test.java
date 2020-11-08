@@ -3,13 +3,28 @@ package ru.gb.trishkin.lesson4;
 import ru.gb.trishkin.lesson3.myqueue.Queue;
 import ru.gb.trishkin.lesson3.mystack.Stack;
 
-import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args) {
 //        testLinkedList();
-        testQueue();
+//        testQueue();
+        testForEach();
     }
+
+    private static void testForEach() {
+        LinkedList<Integer> linkedList = new SimpleLinkedListImpl<>();
+        linkedList.insertFirst(1);
+        linkedList.insertFirst(2);
+        linkedList.insertFirst(3);
+        linkedList.insertFirst(4);
+
+//        linkedList.display();
+
+        for(Integer value: linkedList) {
+            System.out.println(value);
+        }
+    }
+
     private static void testLinkedList() {
 //        LinkedList<Integer> linkedList = new SimpleLinkedListImpl<>();
         TwoSideLinkedList<Integer> linkedList = new TwoSideLinkedListImpl<>();
