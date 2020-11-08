@@ -23,6 +23,7 @@ public class Test {
         for(Integer value: linkedList) {
             System.out.println(value);
         }
+        linkedList.display();
     }
 
     private static void testLinkedList() {

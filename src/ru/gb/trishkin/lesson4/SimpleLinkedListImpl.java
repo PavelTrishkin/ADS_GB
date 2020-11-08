@@ -6,6 +6,7 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E> {
 
     protected int size;
     protected Node<E> firstElement;
+    protected Node<E> cursor;
 
     @Override
     public void insertFirst(E value) {
@@ -100,13 +101,13 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E> {
         return firstElement.item;
     }
 
-
     @Override
     public Iterator<E> iterator() {
+        cursor = firstElement;
         return new Iterator<E>() {
             @Override
             public boolean hasNext() {
-                return firstElement != null;
+                return cursor != null;
             }
 
             @Override
@@ -115,8 +116,8 @@ public class SimpleLinkedListImpl<E> implements LinkedList<E> {
                     return null;
                 }
 
-                Node<E> lastReturned = firstElement;
-                firstElement = firstElement.next;
+                Node<E> lastReturned = cursor;
+                cursor = cursor.next;
 
                 return  lastReturned.item;
             }
