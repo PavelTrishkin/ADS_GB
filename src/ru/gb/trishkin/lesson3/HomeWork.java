@@ -18,18 +18,16 @@ public class HomeWork {
     public static void main(String[] args) {
         DeQueue<Integer> deQueue = new DeQueueImpl<>(5);
 
-        System.out.println(deQueue.insertLast(5));
-        System.out.println(deQueue.insertLast(2));
-        System.out.println(deQueue.insertFirst(1));
-        System.out.println(deQueue.insertFirst(4));
-        System.out.println(deQueue.insertFirst(6));
-        System.out.println(deQueue.insertFirst(7));
-        System.out.println("Removed: " + deQueue.removeLast());
-        System.out.println("Removed: " + deQueue.removeLast());
-        System.out.println("Removed: " + deQueue.removeLast());
+        System.out.println(deQueue.insertRight(5));
+        System.out.println(deQueue.insertRight(2));
+        System.out.println(deQueue.insertLeft(1));
+        System.out.println(deQueue.insertLeft(4));
+        System.out.println(deQueue.insertLeft(6));
+        System.out.println(deQueue.insertLeft(7));
+        System.out.println("Removed: " + deQueue.removeRight());
+        System.out.println("Removed: " + deQueue.removeLeft());
+        System.out.println("Removed: " + deQueue.removeRight());
         System.out.println("Size: " + deQueue.size());
-        System.out.println("First: " + deQueue.peekFirst());
-        System.out.println("Last: " + deQueue.peekLast());
 
 
 //        flippingLine(testString);

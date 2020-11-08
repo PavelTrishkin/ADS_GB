@@ -7,82 +7,42 @@ public class DeQueueImpl<E> extends QueueImpl<E> implements DeQueue<E> {
 
     public DeQueueImpl(int maxSize) {
         super(maxSize);
-        head = DEFAULT_TAIL;
-        tail = data.length;
     }
 
     @Override
-    public boolean isFull() {
-        return head + 1 == tail;
+    public E removeLeft() {
+        return super.remove();
     }
 
     @Override
-    public boolean insertFirst(E value) {
+    public boolean insertRight(E value) {
+        return  super.insert(value);
+    }
+
+    @Override
+    public boolean insertLeft(E value) {
         if (isFull()) {
             return false;
         }
+        if (head == DEFAULT_HEAD)
+            head = data.length;
 
-//        if (tail == data.length - 1) {
-//            tail = DEFAULT_TAIL;
-//        }
-
-        data[++head] = value;
+        data[--head] = value;
         size++;
+
         return true;
     }
 
     @Override
-    public boolean insertLast(E value) {
-        if (isFull()) {
-            return false;
+    public E removeRight() {
+        if (isEmpty()) {
+            return  null;
         }
-
-//        if (tail == data.length - 1) {
-//            tail = DEFAULT_TAIL;
-//        }
-
-        data[--tail] = value;
-        size++;
-        return true;
-    }
-
-    @Override
-    public E removeFirst() {
-        if(isEmpty()){
-            return null;
-        }
-        E removedValue = data[--head];
-        size--;
-        return removedValue;
-    }
-
-    @Override
-    public E removeLast() {
-        if(isEmpty()){
-            return null;
-        }
-
-        E removedValue = data[tail++];
-        size--;
-        if(tail == data.length){
+        if (tail == DEFAULT_TAIL)
             tail = data.length - 1;
-        }
-        return removedValue;
+
+        size--;
+        return data[tail--];
     }
 
-    @Override
-    public E peekFirst() {
-        if (isEmpty()) {
-            return null;
-        }
-        return data[head];
-    }
-
-    @Override
-    public E peekLast() {
-        if (isEmpty()) {
-            return null;
-        }
-        return data[tail];
-    }
 }
